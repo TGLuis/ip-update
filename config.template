@@ -1,0 +1,7 @@
+{
+    "fritzbox_user_password" : "",
+    "cloudflare_zone_id" : "",
+    "cloudflare_token" : "",
+    "ipv4": "",
+    "ipv6": ""
+}
