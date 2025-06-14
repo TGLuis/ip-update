@@ -21,7 +21,7 @@ def update_cloudflare_if_needed(client: Cloudflare, cloudflare_zone_id: str, ipv
 
 
 if __name__ == "__main__":
-    with open(".config", "w") as f:
+    with open(".config", "r+") as f:
         config = json.load(f)
         fritzbox_user_password = config["fritzbox_user_password"]
         cloudflare_zone_id = config["cloudflare_zone_id"]
@@ -36,4 +36,5 @@ if __name__ == "__main__":
         update_cloudflare_if_needed(client, cloudflare_zone_id, ipv4, ipv6)
 
         config["ipv4"], config["ipv6"] = ipv4, ipv6
+        f.seek(0)
         json.dump(config, f, indent=4)
